@@ -1,7 +1,5 @@
 import "./slider";
-import modals from "./modules/modals";
-import tabs from "./modules/tabs";
-// import forms from './modules/forms';
+import { tabs, modals } from "./modules";
 
 window.addEventListener("DOMContentLoaded", () => {
   "use strict";
