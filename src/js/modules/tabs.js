@@ -42,8 +42,3 @@ export const tabs = ({
     }
   });
 };
-
-tabs({ headerSelector, 
-  tabSelector, 
-  contentSelector, 
-  activeClass });
