@@ -22,18 +22,17 @@ export const modals = () => {
       });
     });
 
-    const closeModal = () => {
-      modal.style.display = "none";
-      document.body.style.overflow = "";
-    };
-
-    close.addEventListener("click", () => {
-      closeModal();
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+      }
     });
 
     modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        closeModal();
+      if (e.target === modal || close) {
+        modal.style.display = "none";
+        document.body.style.overflow = "";
       }
     });
   };
