@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
   "use strict";
   modals();
   tabs({
-    headerSelector: ".glazing_slider ",
+    headerSelector: ".glazing_slider",
     tabSelector: ".glazing_block",
     contentSelector: ".glazing_content",
     activeClass: "active",
