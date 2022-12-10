@@ -1,5 +1,3 @@
-import { event } from "jquery";
-
 export const modals = () => {
   const bindModal = (
     triggerSelector,
