@@ -1,12 +1,12 @@
 export const tabs = (tabs: {
   headerSelector: string;
   tabSelector: string;
-  contentSelector: any;
-  activeClass: any;
+  contentSelector: string;
+  activeClass: string;
 }) => {
   const header = document.querySelector(tabs.headerSelector);
   const tab = document.querySelectorAll(tabs.tabSelector);
-  const content = document.querySelectorAll(tabs.contentSelector);
+  const content = document.querySelectorAll<HTMLElement>(tabs.contentSelector);
 
   function hideTabContent() {
     content.forEach((content) => {
