@@ -1,5 +1,5 @@
 export const forms = () => {
-  const form = document.querySelectorAll("form");
+  const forms = document.querySelectorAll("form");
   const inputs = document.querySelectorAll("input");
   const phoneInputs = document.querySelectorAll("input[name='user_phone']");
 
@@ -17,7 +17,7 @@ export const forms = () => {
 
   const postData = async (url: string, data: string) => {
     document.querySelector(".status").textContent = message.loading;
-    let result = await fetch(url, {
+    const result = await fetch(url, {
       method: "POST",
       body: data,
     });
@@ -31,7 +31,7 @@ export const forms = () => {
     });
   };
 
-  form.forEach((form) => {
+  forms.forEach((form) => {
     form.addEventListener("submit", (e: any) => {
       e.preventDefault();
 
