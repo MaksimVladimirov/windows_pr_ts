@@ -1,15 +1,16 @@
 export const modals = () => {
   const bindModal = (
-    triggerSelector,
-    triggerModalSelector,
-    triggerCloseSelector
+    triggerSelector: string,
+    triggerModalSelector: any,
+    triggerCloseSelector: string
   ) => {
     const trigger = document.querySelectorAll(triggerSelector);
     const modal = document.querySelector(triggerModalSelector);
     const close = document.querySelector(triggerCloseSelector);
 
+
     trigger.forEach((trigger) => {
-      trigger.addEventListener("click", (e) => {
+      trigger.addEventListener("click", (e: any) => {
         if (e.target) {
           e.preventDefault();
         }
@@ -27,7 +28,7 @@ export const modals = () => {
       }
     });
 
-    modal.addEventListener("click", (e) => {
+    modal.addEventListener("click", (e: any) => {
       if (e.target === modal || close) {
         modal.style.display = "none";
         document.body.style.overflow = "";
@@ -35,7 +36,7 @@ export const modals = () => {
     });
   };
 
-  const showModalByTime = (selector, time) => {
+  const showModalByTime = (selector: any , time: number) => {
     setTimeout(() => {
       document.querySelector(selector).style.display = "block";
       document.body.style.overflow = "hidden";
