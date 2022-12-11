@@ -1,7 +1,8 @@
 import $ from "jquery";
 import "slick-carousel";
+
 $(document).ready(function () {
-  $(".glazing_slider").slick({
+  (<any>$(".glazing_slider")).slick({
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -44,7 +45,7 @@ $(document).ready(function () {
       },
     ],
   });
-  $(".decoration_slider").slick({
+  (<any>$(".decoration_slider")).slick({
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
