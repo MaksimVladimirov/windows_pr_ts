@@ -8,7 +8,7 @@ export const tabs = (tabs: {
   const header = document.querySelector(tabs.headerSelector);
   const tab = document.querySelectorAll(tabs.tabSelector);
   const content = document.querySelectorAll<HTMLElement>(tabs.contentSelector);
-  // const display:'block'
+
   function hideTabContent() {
     content.forEach((content) => {
       content.style.display = "none";

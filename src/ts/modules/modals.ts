@@ -1,15 +1,15 @@
 export const modals = () => {
   const bindModal = (bindModal: {
-    triggerSelector: string;
-    triggerModalSelector: string;
-    triggerCloseSelector: string;
-    triggerCloseClickOverlay: boolean;
+    triggersSelector: string;
+    triggersModalSelector: string;
+    triggersCloseSelector: string;
+    triggersCloseClickOverlay: boolean;
   }) => {
-    const trigger = document.querySelectorAll(bindModal.triggerSelector);
+    const trigger = document.querySelectorAll(bindModal.triggersSelector);
     const modal = document.querySelector<HTMLElement>(
-      bindModal.triggerModalSelector
+      bindModal.triggersModalSelector
     );
-    const close = document.querySelector(bindModal.triggerCloseSelector);
+    const close = document.querySelector(bindModal.triggersCloseSelector);
     const windows = document.querySelectorAll("[data-modal]");
     trigger.forEach((trigger) => {
       trigger.addEventListener("click", (e: any) => {
@@ -23,7 +23,6 @@ export const modals = () => {
 
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
-        // document.body.classList.add('modal-open');
       });
     });
 
@@ -34,25 +33,27 @@ export const modals = () => {
       }
     });
 
-    close.addEventListener("click", () => {
+    const closeModal = () => {
       windows.forEach((window: any) => {
         window.style.display = "none";
       });
-
       modal.style.display = "none";
       document.body.style.overflow = "";
-    });
+    }
 
-    modal.addEventListener("click", (e: any) => {
-      if (e.target === modal && bindModal.triggerCloseClickOverlay) {
-        windows.forEach((window: any) => {
-          window.style.display = "none";
-        });
-        modal.style.display = "none";
-        document.body.style.overflow = "";
-      }
-    });
-  };
+      close.addEventListener("click", () => {
+        closeModal()
+      });
+
+      modal.addEventListener("click", (e: any) => {
+        if (e.target === modal && bindModal.triggersCloseClickOverlay ) {
+         closeModal()
+        }
+      });
+      
+    };
+    
+    
 
   const showModalByTime = (selector: any, time: number) => {
     setTimeout(() => {
@@ -62,34 +63,34 @@ export const modals = () => {
   };
 
   bindModal({
-    triggerSelector: ".popup_engineer_btn",
-    triggerModalSelector: ".popup_engineer",
-    triggerCloseSelector: ".popup_engineer .popup_close",
-    triggerCloseClickOverlay: false
+    triggersSelector: ".popup_engineer_btn",
+    triggersModalSelector: ".popup_engineer",
+    triggersCloseSelector: ".popup_engineer .popup_close",
+    triggersCloseClickOverlay: false,
   });
   bindModal({
-    triggerSelector: ".phone_link",
-    triggerModalSelector: ".popup",
-    triggerCloseSelector: ".popup .popup_close",
-    triggerCloseClickOverlay: false
+    triggersSelector: ".phone_link",
+    triggersModalSelector: ".popup",
+    triggersCloseSelector: ".popup .popup_close",
+    triggersCloseClickOverlay: false,
   });
   bindModal({
-    triggerSelector: ".popup_calc_btn",
-    triggerModalSelector: ".popup_calc",
-    triggerCloseSelector: ".popup_calc_close",
-    triggerCloseClickOverlay: false
+    triggersSelector: ".popup_calc_btn",
+    triggersModalSelector: ".popup_calc",
+    triggersCloseSelector: ".popup_calc_close",
+    triggersCloseClickOverlay: false,
   });
   bindModal({
-    triggerSelector: ".popup_calc_button",
-    triggerModalSelector: ".popup_calc_profile",
-    triggerCloseSelector: ".popup_calc_profile_close",
-    triggerCloseClickOverlay: false
-  })
+    triggersSelector: ".popup_calc_button",
+    triggersModalSelector: ".popup_calc_profile",
+    triggersCloseSelector: ".popup_calc_profile_close",
+    triggersCloseClickOverlay: false,
+  });
   bindModal({
-    triggerSelector: ".popup_calc_profile_button",
-    triggerModalSelector: ".popup_calc_end",
-    triggerCloseSelector: ".popup_calc_end_close",
-    triggerCloseClickOverlay: false
-  })
+    triggersSelector: ".popup_calc_profile_button",
+    triggersModalSelector: ".popup_calc_end",
+    triggersCloseSelector: ".popup_calc_end_close",
+    triggersCloseClickOverlay: false,
+  });
   // showModalByTime('.popup', 60000);
-};
+  };
