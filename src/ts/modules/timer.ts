@@ -1,4 +1,4 @@
-export const timer = (id: string, deadline: string) => {
+export const timer = (id:string, deadline:string) => {
     const addZero = (num:number) => {
         if (num <= 9) {
             return '0' + num;
@@ -8,7 +8,7 @@ export const timer = (id: string, deadline: string) => {
     };
 
     const getTimeRemaining = (endTime:string) => {
-        const time = Date.parse(endTime) - Date.parse(new Date());
+        const time = Date.parse(endTime) - Date.parse(new Date().toString());
         const seconds = Math.floor((time/1000) % 60);
         const minutes = Math.floor((time/1000/60) % 60);
         const hours = Math.floor((time/(1000 * 60 * 60)) % 24);
@@ -23,7 +23,7 @@ export const timer = (id: string, deadline: string) => {
         };
     };
 
-    const setClock = (selector:any ,endTime:string) => {
+    const setClock = (selector:any,endTime: string) => {
         const timer = document.querySelector(selector);
         const days = timer.querySelector("#days");
         const hours = timer.querySelector("#hours");
