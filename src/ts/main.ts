@@ -1,8 +1,19 @@
 import "./slider";
-import { tabs, modals, forms } from "./modules";
+import {
+  tabs,
+  modals,
+  forms,
+  changeModalState,
+  checkNumInputs,
+} from "./modules";
 
 window.addEventListener("DOMContentLoaded", () => {
   "use strict";
+
+  const modalState = {};
+
+  changeModalState(modalState);
+
   modals();
 
   tabs({
@@ -29,5 +40,5 @@ window.addEventListener("DOMContentLoaded", () => {
     display: "inline-block",
   });
 
-  forms();
+  forms(modalState);
 });
