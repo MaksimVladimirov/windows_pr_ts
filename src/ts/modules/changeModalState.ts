@@ -18,8 +18,8 @@ export const changeModalState = (state: { [key: string]: number | string }) => {
             state[property] = index;
             break;
           case "INPUT":
-            if (item.getAttribute("type") === "checkbox") {
-              index === 0 ? (state[property] = "Холодное") : (state[property] = "Теплое");
+            if (item.getAttribute("type") === "radio") {
+            (state[property] = index === 0 ?  "Холодное" : "Теплое");
             }
           case "SELECT":
             state[property] = item.value;
