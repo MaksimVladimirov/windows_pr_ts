@@ -5,12 +5,14 @@ import {
   forms,
   changeModalState,
   checkNumInputs,
+  timer,
 } from "./modules";
 
 window.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
   const modalState = {};
+  const deadline = "2022-12-13";
 
   changeModalState(modalState);
 
@@ -41,4 +43,5 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   forms(modalState);
+  timer(".container1", deadline);
 });
