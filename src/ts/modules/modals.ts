@@ -14,6 +14,8 @@ export const modals = () => {
     const modal = document.querySelector<HTMLElement>(triggerModalSelector);
     const close = document.querySelector(triggerCloseSelector);
     const windows = document.querySelectorAll("[data-modal]");
+    const scroll = calcScroll();
+
     triggers.forEach((trigger) => {
       trigger.addEventListener("click", (e: any) => {
         if (e.target) {
@@ -26,6 +28,7 @@ export const modals = () => {
 
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
+        document.body.style.marginRight = `${scroll}px`;
       });
     });
 
@@ -42,6 +45,7 @@ export const modals = () => {
       });
       modal.style.display = "none";
       document.body.style.overflow = "";
+      document.body.style.marginRight = `0px`;
     };
 
     close.addEventListener("click", () => {
@@ -60,6 +64,21 @@ export const modals = () => {
       document.querySelector(selector).style.display = "block";
       document.body.style.overflow = "hidden";
     }, time);
+  };
+
+  const calcScroll = () => {
+    const div = document.createElement("div");
+
+    div.style.width = "50px";
+    div.style.height = "50px";
+    div.style.overflowY = "scroll";
+    div.style.visibility = "hidden";
+
+    document.body.appendChild(div);
+    const scrollWidth = div.offsetWidth - div.clientWidth;
+    div.remove();
+
+    return scrollWidth;
   };
 
   bindModal({
