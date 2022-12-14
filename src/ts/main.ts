@@ -6,6 +6,7 @@ import {
   changeModalState,
   checkNumInputs,
   timer,
+  images,
 } from "./modules";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -44,4 +45,5 @@ window.addEventListener("DOMContentLoaded", () => {
 
   forms(modalState);
   timer(".container1", deadline);
+  images();
 });
